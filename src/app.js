@@ -3,14 +3,17 @@ const applyMiddlewares = require('./middlewares/applyMiddlewares');
 const connectDB = require('./db/dbConfig');
 require('dotenv').config();
 const apartmentRoutes = require('./routes/Apartments/index');
+const authenticationRoute = require('../src/routes/Authentication')
+const registerUserRoute = require('../src/routes/RegisterUser/registerUser')
 
 const app = express();
-
 const port = process.env.PORT || 5000;
 
 applyMiddlewares(app)
 
 app.use(apartmentRoutes)
+app.use(authenticationRoute)
+app.use(registerUserRoute)
 
 
 
