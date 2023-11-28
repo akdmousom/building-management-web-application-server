@@ -1,3 +1,4 @@
+const User = require('../../../models/userRegister/userRegister')
 const userRole = async(req,res)=>{
     const email = req.query.email;
     await User.find({userEmail : email})
