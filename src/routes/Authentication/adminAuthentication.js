@@ -4,15 +4,23 @@ const verifyAdmin = async(req,res,next) =>{
 
     const admin = await User.find({userEmail: email})
 
- const userRole = admin[0].userRole;
+ const userStatus = admin.pop()
+
+ const userRole = userStatus.userRole
 
  if (userRole !== 'admin') {
 
-    return res.status(401).json({message: 'unauthorized'})
+   return res.status(401).send({message: 'unauthorized'})
     
- }else{
-    return res.status(300).send(userRole)
  }
+
+ next()
+
+   
+
+    
+
+
 
 
     
