@@ -10,6 +10,12 @@ const userRegisterSchema = new Schema({
         type: String,
         required: true
     },
+    userRole : {
+        type: String,
+        enum: ['user', 'member', 'admin'],
+        default: 'user',
+        
+    },
 })
 
 const User = mongoose.model('User', userRegisterSchema)
