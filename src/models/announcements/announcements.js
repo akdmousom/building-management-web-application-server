@@ -15,6 +15,9 @@ const announcementSchema = new mongoose.Schema({
     }
 })
 
-const announcementModel = new mongoose.model('announcement', announcementSchema);
+// const announcementModel = new mongoose.model('announcement', announcementSchema);
 
-module.exports = announcementModel;
+// module.exports = announcementModel;
+const announcementModel = mongoose.model('announcement', announcementSchema);
+
+module.exports = announcementModel
