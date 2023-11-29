@@ -1,8 +1,8 @@
 const User = require('../../../models/userRegister/userRegister')
 const memberRemove = async(req,res) => {
-    const { id } = req.params;
+    const { email } = req.query;
 
-    await User.findOneAndUpdate({_id: id }, {userRole : 'user'}, {new: true})
+    await User.findOneAndUpdate({userEmail: email }, {userRole : 'member'}, {new: true})
     .then(response=>{
         res.status(200).send({message: 'Success'})
     }).catch(err=>{

@@ -6,11 +6,11 @@ const onlyAdminAccess = async (req, res, next) => {
 
     const userStatus = admin.pop()
 
-    const userRole = userStatus.userRole
+    const userRole = userStatus?.userRole
 
     if (userRole !== 'admin') {
 
-        return res.status(401).send({ message: 'unauthorized' })
+        return res.status(401).send({ message: 'unauthorized admin' })
 
     }
     next()

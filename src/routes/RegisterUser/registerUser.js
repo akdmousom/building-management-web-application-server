@@ -15,6 +15,6 @@ router.get('/api/v1/users', verifyAdmin)
 
 router.get('/api/v1/all-users', onlyAdminAccess,  allUser)
 
-router.put('/api/v1/remove-member/:id', memberRemove  )
+router.put('/api/v1/remove-member', memberRemove  )
 
 module.exports = router
