@@ -6,12 +6,15 @@ const verifyToken = require('../../middlewares/verifyToken');
 const verifyAdmin = require('../Authentication/adminAuthentication');
 const allUser = require('../../api/users/controllers/allUser');
 const onlyAdminAccess = require('../../middlewares/onlyAdminAccess');
+const memberRemove = require('../../api/users/controllers/memberRemove');
 const router = express.Router();
 
 router.post('/api/v1/register',registerUser)
 
 router.get('/api/v1/users', verifyAdmin)
 
-router.get('/api/v1/all-users',verifyToken, onlyAdminAccess,  allUser)
+router.get('/api/v1/all-users', onlyAdminAccess,  allUser)
+
+router.put('/api/v1/remove-member/:id', memberRemove  )
 
 module.exports = router

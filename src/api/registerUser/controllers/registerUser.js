@@ -4,9 +4,6 @@ const registerUser =  async(req,res)=>{
     const newUser = new User(userData)
 
     await newUser.save()
-    .then(()=>{
-        console.log('success');
-    })
 }
 
 module.exports = registerUser
