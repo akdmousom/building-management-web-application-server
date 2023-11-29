@@ -10,8 +10,8 @@ const router = express.Router();
 
 router.post('/api/v1/register',registerUser)
 
-router.get('/api/v1/users',verifyToken, verifyAdmin)
+router.get('/api/v1/users', verifyAdmin)
 
-router.get('/api/v1/all-users', onlyAdminAccess,  allUser)
+router.get('/api/v1/all-users',verifyToken, onlyAdminAccess,  allUser)
 
 module.exports = router

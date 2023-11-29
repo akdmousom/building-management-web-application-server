@@ -8,13 +8,8 @@ const admin = await User.find({userEmail: email})
 
  const userRole = userStatus.userRole
 
- if (userRole !== 'admin') {
-
-   return res.status(401).send({message: 'unauthorized'})
-    
- }
-
- res.status(200).send({message: 'admin'})
+ 
+ res.status(200).send({message: userRole})
 
 
 
