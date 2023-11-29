@@ -6,7 +6,7 @@ const admin = await User.find({userEmail: email})
 
  const userStatus = admin.pop()
 
- const userRole = userStatus.userRole
+ const userRole = userStatus?.userRole
 
  
  res.status(200).send({message: userRole})

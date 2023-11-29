@@ -28,8 +28,12 @@ const agrementSchema = mongoose.Schema({
     },
     status: {
         type: String,
-        enum : ['Pending', 'resolve'],
+        enum : ['Pending', 'checked'],
         default : 'Pending'
+    },
+    date:{
+        type: Date,
+        default: Date.now
     }
 })
 
