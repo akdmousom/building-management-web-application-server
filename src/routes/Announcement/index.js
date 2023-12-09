@@ -8,7 +8,7 @@ const announcementModel = require('../../models/announcements/announcements');
 const verifyToken = require('../../middlewares/verifyToken');
 
 
-router.get('/api/v1/get-announcement',verifyToken, getAnnouncement)
+router.get('/api/v1/get-announcement', verifyToken, getAnnouncement)
 router.post('/api/v1/post-announcement',onlyAdminAccess, postAnnouncement );
 
 module.exports = router

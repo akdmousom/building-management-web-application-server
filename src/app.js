@@ -6,6 +6,7 @@ const apartmentRoutes = require('./routes/Apartments/index');
 const authenticationRoute = require('../src/routes/Authentication')
 const registerUserRoute = require('../src/routes/RegisterUser/registerUser')
 const announcementRoute = require('./routes/Announcement')
+const payment = require('../src/routes/Payment')
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -16,6 +17,7 @@ app.use(apartmentRoutes)
 app.use(authenticationRoute)
 app.use(registerUserRoute)
 app.use(announcementRoute)
+app.use(payment)
 
 
 
@@ -48,15 +50,16 @@ app.use((err, req, res, next) => {
     res.status(err.status || 500).json({ message: err.message })
 })
 
-const main = async () => {
-    await connectDB();
+// const main = async () => {
+//     await connectDB();
 
-    app.listen(port, () => {
+//     app.listen(port, () => {
 
-        console.log(`Server running on port ${port}`);
+//         console.log(`Server running on port ${port}`);
 
-    })
+//     })
 
-}
-main()
+// }
+// main()
 
+module.exports = app
